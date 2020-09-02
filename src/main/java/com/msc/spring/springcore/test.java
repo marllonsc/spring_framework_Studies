@@ -112,9 +112,8 @@ public class test {
 
         ApplicationContext innerBean = new ClassPathXmlApplicationContext("innerBean.xml");
         Employee employee = (Employee) innerBean.getBean("employee");
-        System.out.println(employee));
+        System.out.println(employee);
 
-        ApplicationContext innerBean = new ClassPathXmlApplicationContext("innerBean.xml");
         Employee employee2 = (Employee) innerBean.getBean("employee");
         System.out.println(employee2.hashCode());
 
