@@ -1,6 +1,8 @@
 package com.msc.spring.springcore;
 
 import com.msc.spring.springcore.activity.ShoppingCart;
+import com.msc.spring.springcore.dependencycheck.Prescription;
+import com.msc.spring.springcore.innerbean.Employee;
 import com.msc.spring.springcore.lc.activity.TicketReservation;
 import com.msc.spring.springcore.lc.xmlconfig.Patient;
 import com.msc.spring.springcore.list.Hospital;
@@ -8,12 +10,15 @@ import com.msc.spring.springcore.map.Customer;
 import com.msc.spring.springcore.properties.CountriesAndLanguages;
 import com.msc.spring.springcore.reftypes.Student;
 import com.msc.spring.springcore.set.CarDealer;
+import org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class test {
 
     public static void main(String[] args) throws InterruptedException {
+        /*
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("config.xml");
         Employee emp = (Employee) ctx.getBean("emp");
         System.out.println("id:"+emp.getId() + " Name:"+emp.getName());
@@ -93,6 +98,28 @@ public class test {
         TicketReservation ticket = (TicketReservation) lc.getBean("ticket");
         System.out.println(ticket);
         lc.registerShutdownHook();
+
+        System.out.println("___________________________________________________________________________________________");
+
+
+
+
+        ApplicationContext dependencyCheck = new ClassPathXmlApplicationContext("dependencyCheck.xml");
+        Prescription prescription = (Prescription) dependencyCheck.getBean("prescription");
+        System.out.println(prescription);
+
+         */
+
+        ApplicationContext innerBean = new ClassPathXmlApplicationContext("innerBean.xml");
+        Employee employee = (Employee) innerBean.getBean("employee");
+        System.out.println(employee));
+
+        ApplicationContext innerBean = new ClassPathXmlApplicationContext("innerBean.xml");
+        Employee employee2 = (Employee) innerBean.getBean("employee");
+        System.out.println(employee2.hashCode());
+
+        Employee employee3 = (Employee) innerBean.getBean("employee");
+        System.out.println(employee3.hashCode());
 
 
     }
