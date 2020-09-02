@@ -1,22 +1,24 @@
 package com.msc.spring.springcore;
 
-import com.msc.spring.springcore.Employee;
 import com.msc.spring.springcore.activity.ShoppingCart;
+import com.msc.spring.springcore.lc.activity.TicketReservation;
+import com.msc.spring.springcore.lc.xmlconfig.Patient;
 import com.msc.spring.springcore.list.Hospital;
 import com.msc.spring.springcore.map.Customer;
 import com.msc.spring.springcore.properties.CountriesAndLanguages;
 import com.msc.spring.springcore.reftypes.Student;
 import com.msc.spring.springcore.set.CarDealer;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.Map;
 
 public class test {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("config.xml");
         Employee emp = (Employee) ctx.getBean("emp");
-       // System.out.println("id:"+emp.getId() + " Name:"+emp.getName());
+        System.out.println("id:"+emp.getId() + " Name:"+emp.getName());
+
+        System.out.println("___________________________________________________________________________________________");
 
         ClassPathXmlApplicationContext list = new ClassPathXmlApplicationContext("list.xml");
         Hospital hosp = (Hospital) list.getBean("hospital");
@@ -27,6 +29,8 @@ public class test {
             i++;
         }
 
+        System.out.println("___________________________________________________________________________________________");
+
         ClassPathXmlApplicationContext set = new ClassPathXmlApplicationContext("setConfig.xml");
         CarDealer car = (CarDealer) set.getBean("carDealer");
         System.out.println("Name:"+car.getName());
@@ -36,22 +40,60 @@ public class test {
             i++;
         }
 
+        System.out.println("___________________________________________________________________________________________");
+
 
         ClassPathXmlApplicationContext map = new ClassPathXmlApplicationContext("mapConfig.xml");
         Customer cus = (Customer) map.getBean("cus");
         System.out.println("ID: "+cus.getId());
         System.out.println(cus.getProducts());
 
+        System.out.println("___________________________________________________________________________________________");
+
         ClassPathXmlApplicationContext props = new ClassPathXmlApplicationContext("propertiesConfig.xml");
         CountriesAndLanguages cl = (CountriesAndLanguages) props.getBean("countriesAndLangs");
         System.out.println(cl.getCountryAndLangs());
+
+        System.out.println("___________________________________________________________________________________________");
 
         ClassPathXmlApplicationContext stu = new ClassPathXmlApplicationContext("refTypesConfig.xml");
         Student student = (Student) stu.getBean("student");
         System.out.println(student);
 
+        System.out.println("___________________________________________________________________________________________");
+
         ClassPathXmlApplicationContext act = new ClassPathXmlApplicationContext("activity.xml");
         ShoppingCart shp = (ShoppingCart) act.getBean("shopping");
         System.out.println(shp);
+
+        System.out.println("___________________________________________________________________________________________");
+
+        AbstractApplicationContext lc = new ClassPathXmlApplicationContext("lcconfig.xml");
+        Patient pa = (Patient) lc.getBean("patient");
+        System.out.println(pa);
+        lc.registerShutdownHook();  //to invoke destroy method
+
+
+        System.out.println("___________________________________________________________________________________________");
+
+        com.msc.spring.springcore.lc.interfaces.Patient pa2 = (com.msc.spring.springcore.lc.interfaces.Patient) lc.getBean("patientInterface");
+        System.out.println(pa2);
+        lc.registerShutdownHook();
+
+        System.out.println("___________________________________________________________________________________________");
+
+
+        com.msc.spring.springcore.lc.anotations.Patient pa3 = (com.msc.spring.springcore.lc.anotations.Patient) lc.getBean("patientAnotation");
+        System.out.println(pa3);
+        lc.registerShutdownHook();
+
+        System.out.println("___________________________________________________________________________________________");
+
+
+        TicketReservation ticket = (TicketReservation) lc.getBean("ticket");
+        System.out.println(ticket);
+        lc.registerShutdownHook();
+
+
     }
 }
