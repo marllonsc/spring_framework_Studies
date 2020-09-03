@@ -1,6 +1,7 @@
 package com.msc.spring.springcore;
 
 import com.msc.spring.springcore.activity.ShoppingCart;
+import com.msc.spring.springcore.constructorinjection.ambiguty.Addition;
 import com.msc.spring.springcore.dependencycheck.Prescription;
 import com.msc.spring.springcore.innerbean.Employee;
 import com.msc.spring.springcore.lc.activity.TicketReservation;
@@ -108,7 +109,6 @@ public class test {
         Prescription prescription = (Prescription) dependencyCheck.getBean("prescription");
         System.out.println(prescription);
 
-         */
 
         ApplicationContext innerBean = new ClassPathXmlApplicationContext("innerBean.xml");
         Employee employee = (Employee) innerBean.getBean("employee");
@@ -119,6 +119,18 @@ public class test {
 
         Employee employee3 = (Employee) innerBean.getBean("employee");
         System.out.println(employee3.hashCode());
+
+         */
+
+        ApplicationContext contructInjection = new ClassPathXmlApplicationContext("constructorInjection.xml");
+        com.msc.spring.springcore.constructorinjection.Employee emp = (com.msc.spring.springcore.constructorinjection.Employee) contructInjection.getBean("employee");
+        System.out.println(emp);
+
+        ApplicationContext addition = new ClassPathXmlApplicationContext("ambiguty.xml");
+        Addition add = (Addition) addition.getBean("addition");
+        add = (Addition) addition.getBean("addition1");
+        add = (Addition) addition.getBean("addition2");
+        add = (Addition) addition.getBean("addition3");
 
 
     }
