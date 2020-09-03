@@ -9,6 +9,7 @@ import com.msc.spring.springcore.lc.xmlconfig.Patient;
 import com.msc.spring.springcore.list.Hospital;
 import com.msc.spring.springcore.map.Customer;
 import com.msc.spring.springcore.properties.CountriesAndLanguages;
+import com.msc.spring.springcore.propertyplaceholder.MyDAO;
 import com.msc.spring.springcore.reftypes.Student;
 import com.msc.spring.springcore.set.CarDealer;
 import org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor;
@@ -120,9 +121,8 @@ public class test {
         Employee employee3 = (Employee) innerBean.getBean("employee");
         System.out.println(employee3.hashCode());
 
-         */
 
-        ApplicationContext contructInjection = new ClassPathXmlApplicationContext("constructorInjection.xml");
+        ApplicationContext contructInjection = new ClassPathXmlApplicationContext("constructorInjection.xml");ApplicationContext
         com.msc.spring.springcore.constructorinjection.Employee emp = (com.msc.spring.springcore.constructorinjection.Employee) contructInjection.getBean("employee");
         System.out.println(emp);
 
@@ -131,6 +131,13 @@ public class test {
         add = (Addition) addition.getBean("addition1");
         add = (Addition) addition.getBean("addition2");
         add = (Addition) addition.getBean("addition3");
+
+
+         */
+
+        ApplicationContext properties = new ClassPathXmlApplicationContext("configProperties.xml");
+        MyDAO dao = (MyDAO) properties.getBean("myDAO");
+        System.out.println(dao);
 
 
     }
