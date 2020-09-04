@@ -2,6 +2,7 @@ package com.msc.spring.springcoreadvanced;
 
 import com.msc.spring.springcoreadvanced.autowiring.Employee;
 import com.msc.spring.springcoreadvanced.placeholder.MyDAO;
+import com.msc.spring.springcoreadvanced.standalone.collections.ProductsList;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -23,6 +24,15 @@ public class App
         ApplicationContext properties = new ClassPathXmlApplicationContext("configProperties.xml");
         MyDAO dao = (MyDAO) properties.getBean("myDAO");
         System.out.println(dao);
+
+        /*
+        Not Worked good
+
+        ApplicationContext standaloneCollections  = new ClassPathXmlApplicationContext("standaloneCollections.xml");
+        ProductsList productsList = (ProductsList) standaloneCollections.getBean("productsList");
+        System.out.println(productsList);
+        *
+         */
 
 
     }

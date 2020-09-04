@@ -6,14 +6,15 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
-    <output url="file://$MODULE_DIR$/target/classes" />
-    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <output url="file://$MODULE_DIR$/../Spring_core_advanced/target/classes" />
+    <output-test url="file://$MODULE_DIR$/../Spring_core_advanced/target/test-classes" />
     <content url="file://$MODULE_DIR$/../Spring_core_advanced">
       <sourceFolder url="file://$MODULE_DIR$/../Spring_core_advanced/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../Spring_core_advanced/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/../Spring_core_advanced/target" />
     </content>
+    <content url="file://$MODULE_DIR$/src/test/java" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
