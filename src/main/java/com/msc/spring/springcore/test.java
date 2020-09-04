@@ -20,9 +20,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class test {
 
     public static void main(String[] args) throws InterruptedException {
-        /*
+
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("config.xml");
-        Employee emp = (Employee) ctx.getBean("emp");
+        com.msc.spring.springcore.Employee emp = (com.msc.spring.springcore.Employee) ctx.getBean("emp");
         System.out.println("id:"+emp.getId() + " Name:"+emp.getName());
 
         System.out.println("___________________________________________________________________________________________");
@@ -122,9 +122,9 @@ public class test {
         System.out.println(employee3.hashCode());
 
 
-        ApplicationContext contructInjection = new ClassPathXmlApplicationContext("constructorInjection.xml");ApplicationContext
-        com.msc.spring.springcore.constructorinjection.Employee emp = (com.msc.spring.springcore.constructorinjection.Employee) contructInjection.getBean("employee");
-        System.out.println(emp);
+        ApplicationContext contructInjection = new ClassPathXmlApplicationContext("constructorInjection.xml");
+        com.msc.spring.springcore.constructorinjection.Employee emp2 = (com.msc.spring.springcore.constructorinjection.Employee) contructInjection.getBean("employee");
+        System.out.println(emp2);
 
         ApplicationContext addition = new ClassPathXmlApplicationContext("ambiguty.xml");
         Addition add = (Addition) addition.getBean("addition");
@@ -133,12 +133,9 @@ public class test {
         add = (Addition) addition.getBean("addition3");
 
 
-         */
-
         ApplicationContext properties = new ClassPathXmlApplicationContext("configProperties.xml");
         MyDAO dao = (MyDAO) properties.getBean("myDAO");
         System.out.println(dao);
-
 
     }
 }
