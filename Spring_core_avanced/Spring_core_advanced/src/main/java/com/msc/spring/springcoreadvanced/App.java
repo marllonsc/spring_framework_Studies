@@ -3,6 +3,7 @@ package com.msc.spring.springcoreadvanced;
 import com.msc.spring.springcoreadvanced.autowiring.Employee;
 import com.msc.spring.springcoreadvanced.placeholder.MyDAO;
 import com.msc.spring.springcoreadvanced.standalone.collections.ProductsList;
+import com.msc.spring.springcoreadvanced.sterotype.annotations.Instructor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -33,6 +34,17 @@ public class App
         System.out.println(productsList);
         *
          */
+
+
+        ApplicationContext stereotypeAnotation = new ClassPathXmlApplicationContext("sterotypeAnnotations.xml");
+        Instructor instructor = (Instructor) stereotypeAnotation.getBean("inst");
+        System.out.println(instructor);
+        Instructor instructor2 = (Instructor) stereotypeAnotation.getBean("inst");
+        System.out.println(instructor.hashCode());
+        System.out.println(instructor2.hashCode());
+
+        System.out.println(instructor);
+        System.out.println(instructor2);
 
 
     }
