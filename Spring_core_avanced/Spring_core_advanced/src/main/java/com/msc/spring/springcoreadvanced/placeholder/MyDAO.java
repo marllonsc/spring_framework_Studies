@@ -1,4 +1,4 @@
-package com.msc.spring.springcore.placeholder;
+package com.msc.spring.springcoreadvanced.placeholder;
 
 public class MyDAO {
     private String dbServer;

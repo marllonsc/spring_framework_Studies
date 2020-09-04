@@ -8,16 +8,16 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="/properties/database.properties" />
+    <context:annotation-config></context:annotation-config>
 
-    <bean class="com.msc.spring.springcore.placeholder.MyDAO" name="myDAO">
+    <bean class="com.msc.spring.springcoreadvanced.autowiring.Address" name="address" p:number="45" p:street="Av .MSC" p:city="Sumaré" />
 
-        <constructor-arg value="${dbServer}" index="0" />
-        <constructor-arg value="${dbPort}" index="1" />
-        <constructor-arg value="${dbUser}" index="2" />
-        <constructor-arg value="${dbPass}" index="3" />
+    <bean class="com.msc.spring.springcoreadvanced.autowiring.anotations.Address"  name="address3" p:number="2020" p:street="Av .ACM" p:city="Brasil" />
 
-    </bean>
+    <bean class="com.msc.spring.springcoreadvanced.autowiring.Employee" name="employee" autowire="constructor" />
+
+    <bean class="com.msc.spring.springcoreadvanced.autowiring.anotations.Employee" name="employee2"  />
+
 
 
 </beans>
