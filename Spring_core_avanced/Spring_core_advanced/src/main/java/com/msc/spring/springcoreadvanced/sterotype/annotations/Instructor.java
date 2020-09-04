@@ -11,11 +11,17 @@ import java.util.List;
 @Scope("prototype")
 public class Instructor {
 
-    @Value("20")
+    @Value("#{66+44}")
     private int id;
 
-    @Value("MSC")
+    @Value("#{T(java.lang.Math).abs(-99)}")
+    private int abs;
+
+    @Value("#{'Marllon costa'.toUpperCase()}")
     private String name;
+
+    @Value("#{2+4>5}")
+    private boolean active;
 
     private List<String> topics;
 
@@ -30,14 +36,16 @@ public class Instructor {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "Instructor{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", topics=" + topics +
-                ", profile=" + profile +
-                '}';
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public int getAbs() {
+        return abs;
+    }
+
+    public void setAbs(int abs) {
+        this.abs = abs;
     }
 
     public void setId(int id) {
@@ -46,5 +54,17 @@ public class Instructor {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "id=" + id +
+                ", abs=" + abs +
+                ", name='" + name + '\'' +
+                ", active=" + active +
+                ", topics=" + topics +
+                ", profile=" + profile +
+                '}';
     }
 }
