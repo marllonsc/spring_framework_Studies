@@ -1,33 +1,20 @@
 package com.msc.spring.springcore;
 
-import com.msc.spring.springcore.activity.ShoppingCart;
-import com.msc.spring.springcore.constructorinjection.ambiguty.Addition;
-import com.msc.spring.springcore.dependencycheck.Prescription;
-import com.msc.spring.springcore.innerbean.Employee;
-import com.msc.spring.springcore.lc.activity.TicketReservation;
-import com.msc.spring.springcore.lc.xmlconfig.Patient;
-import com.msc.spring.springcore.list.Hospital;
-import com.msc.spring.springcore.map.Customer;
-import com.msc.spring.springcore.properties.CountriesAndLanguages;
 import com.msc.spring.springcore.propertyplaceholder.MyDAO;
-import com.msc.spring.springcore.reftypes.Student;
-import com.msc.spring.springcore.set.CarDealer;
-import org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class test {
 
     public static void main(String[] args) throws InterruptedException {
         /*
-        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("config.xml");
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("configuration/config.xml");
         Employee emp = (Employee) ctx.getBean("emp");
         System.out.println("id:"+emp.getId() + " Name:"+emp.getName());
 
         System.out.println("___________________________________________________________________________________________");
 
-        ClassPathXmlApplicationContext list = new ClassPathXmlApplicationContext("list.xml");
+        ClassPathXmlApplicationContext list = new ClassPathXmlApplicationContext("configuration/list.xml");
         Hospital hosp = (Hospital) list.getBean("hospital");
         System.out.println("Name:"+hosp.getName());
         int i = 1;
@@ -38,7 +25,7 @@ public class test {
 
         System.out.println("___________________________________________________________________________________________");
 
-        ClassPathXmlApplicationContext set = new ClassPathXmlApplicationContext("setConfig.xml");
+        ClassPathXmlApplicationContext set = new ClassPathXmlApplicationContext("configuration/setConfig.xml");
         CarDealer car = (CarDealer) set.getBean("carDealer");
         System.out.println("Name:"+car.getName());
         i = 1;
@@ -50,32 +37,32 @@ public class test {
         System.out.println("___________________________________________________________________________________________");
 
 
-        ClassPathXmlApplicationContext map = new ClassPathXmlApplicationContext("mapConfig.xml");
+        ClassPathXmlApplicationContext map = new ClassPathXmlApplicationContext("configuration/mapConfig.xml");
         Customer cus = (Customer) map.getBean("cus");
         System.out.println("ID: "+cus.getId());
         System.out.println(cus.getProducts());
 
         System.out.println("___________________________________________________________________________________________");
 
-        ClassPathXmlApplicationContext props = new ClassPathXmlApplicationContext("propertiesConfig.xml");
+        ClassPathXmlApplicationContext props = new ClassPathXmlApplicationContext("configuration/propertiesConfig.xml");
         CountriesAndLanguages cl = (CountriesAndLanguages) props.getBean("countriesAndLangs");
         System.out.println(cl.getCountryAndLangs());
 
         System.out.println("___________________________________________________________________________________________");
 
-        ClassPathXmlApplicationContext stu = new ClassPathXmlApplicationContext("refTypesConfig.xml");
+        ClassPathXmlApplicationContext stu = new ClassPathXmlApplicationContext("configuration/refTypesConfig.xml");
         Student student = (Student) stu.getBean("student");
         System.out.println(student);
 
         System.out.println("___________________________________________________________________________________________");
 
-        ClassPathXmlApplicationContext act = new ClassPathXmlApplicationContext("activity.xml");
+        ClassPathXmlApplicationContext act = new ClassPathXmlApplicationContext("configuration/activity.xml");
         ShoppingCart shp = (ShoppingCart) act.getBean("shopping");
         System.out.println(shp);
 
         System.out.println("___________________________________________________________________________________________");
 
-        AbstractApplicationContext lc = new ClassPathXmlApplicationContext("lcconfig.xml");
+        AbstractApplicationContext lc = new ClassPathXmlApplicationContext("configuration/lcconfig.xml");
         Patient pa = (Patient) lc.getBean("patient");
         System.out.println(pa);
         lc.registerShutdownHook();  //to invoke destroy method
@@ -106,7 +93,7 @@ public class test {
 
 
 
-        ApplicationContext dependencyCheck = new ClassPathXmlApplicationContext("dependencyCheck.xml");
+        ApplicationContext dependencyCheck = new ClassPathXmlApplicationContext("configuration/dependencyCheck.xml");
         Prescription prescription = (Prescription) dependencyCheck.getBean("prescription");
         System.out.println(prescription);
 
@@ -122,7 +109,7 @@ public class test {
         System.out.println(employee3.hashCode());
 
 
-        ApplicationContext contructInjection = new ClassPathXmlApplicationContext("constructorInjection.xml");ApplicationContext
+        ApplicationContext contructInjection = new ClassPathXmlApplicationContext("configuration/constructorInjection.xml");ApplicationContext
         com.msc.spring.springcore.constructorinjection.Employee emp = (com.msc.spring.springcore.constructorinjection.Employee) contructInjection.getBean("employee");
         System.out.println(emp);
 
@@ -135,7 +122,7 @@ public class test {
 
          */
 
-        ApplicationContext properties = new ClassPathXmlApplicationContext("configProperties.xml");
+        ApplicationContext properties = new ClassPathXmlApplicationContext("configuration/configProperties.xml");
         MyDAO dao = (MyDAO) properties.getBean("myDAO");
         System.out.println(dao);
 

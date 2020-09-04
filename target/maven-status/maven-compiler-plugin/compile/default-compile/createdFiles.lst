@@ -11,7 +11,10 @@ com/msc/spring/springcore/reftypes/Student.class
 com/msc/spring/springcore/innerbean/Employee.class
 com/msc/spring/springcore/set/CarDealer.class
 com/msc/spring/springcore/activity/ShoppingCart.class
+com/msc/spring/springcore/constructorinjection/Employee.class
+com/msc/spring/springcore/constructorinjection/ambiguty/Addition.class
 com/msc/spring/springcore/activity/Item.class
+com/msc/spring/springcore/constructorinjection/Address.class
 com/msc/spring/springcore/innerbean/Address.class
 com/msc/spring/springcore/lc/anotations/Patient.class
 com/msc/spring/springcore/list/Hospital.class
