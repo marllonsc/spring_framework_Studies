@@ -132,7 +132,6 @@ public class test {
         add = (Addition) addition.getBean("addition2");
         add = (Addition) addition.getBean("addition3");
 
-
         ApplicationContext properties = new ClassPathXmlApplicationContext("configProperties.xml");
         MyDAO dao = (MyDAO) properties.getBean("myDAO");
         System.out.println(dao);
