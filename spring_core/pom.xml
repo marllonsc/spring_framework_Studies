@@ -5,19 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.msc.spring</groupId>
-  <artifactId>spring_framework_Studies</artifactId>
+  <artifactId>spring_core</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>spring_framework_Studies</name>
+  <name>spring_core</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
-
-  <packaging>pom</packaging>
-
-  <modules>
-    <module>Spring_core_advanced</module>
-    <module>spring_core</module>
-  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -26,7 +19,6 @@
   </properties>
 
   <dependencies>
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -54,8 +46,6 @@
       <artifactId>javax.annotation-api</artifactId>
       <version>1.3.2</version>
     </dependency>
-
-
   </dependencies>
 
   <build>
