@@ -1,4 +1,3 @@
-com/msc/spring/springcore/test.class
 com/msc/spring/springcore/Employee.class
 com/msc/spring/springcore/lc/activity/TicketReservation.class
 com/msc/spring/springcore/reftypes/Scores.class
@@ -16,6 +15,7 @@ com/msc/spring/springcore/constructorinjection/ambiguty/Addition.class
 com/msc/spring/springcore/propertyplaceholder/MyDAO.class
 com/msc/spring/springcore/activity/Item.class
 com/msc/spring/springcore/constructorinjection/Address.class
+com/msc/spring/springcore/SpringCore.class
 com/msc/spring/springcore/innerbean/Address.class
 com/msc/spring/springcore/lc/anotations/Patient.class
 com/msc/spring/springcore/list/Hospital.class

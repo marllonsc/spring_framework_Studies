@@ -42,11 +42,19 @@ public class SpringCoreAdvanced
         System.out.println(instructor);
         System.out.println(instructor2);
 
+
         ApplicationContext injectingInterface = new ClassPathXmlApplicationContext("injectingInterfaces.xml");
         OrderBO bo = (OrderBO) injectingInterface.getBean("bo");
         bo.placeOrder();
 
+        /*
+           use test;
 
+            create table employee(id int,firstname varchar(20),lastname varchar(20));
+
+            select * from employee;
+
+         */
 
     }
 }
