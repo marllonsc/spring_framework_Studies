@@ -1,6 +1,7 @@
 package com.msc.spring.springcoreadvanced;
 
 import com.msc.spring.springcoreadvanced.autowiring.Employee;
+import com.msc.spring.springcoreadvanced.injecting.interfaces.OrderBO;
 import com.msc.spring.springcoreadvanced.placeholder.MyDAO;
 import com.msc.spring.springcoreadvanced.sterotype.annotations.Instructor;
 import org.springframework.context.ApplicationContext;
@@ -40,6 +41,11 @@ public class SpringCoreAdvanced
 
         System.out.println(instructor);
         System.out.println(instructor2);
+
+        ApplicationContext injectingInterface = new ClassPathXmlApplicationContext("injectingInterfaces.xml");
+        OrderBO bo = (OrderBO) injectingInterface.getBean("bo");
+        bo.placeOrder();
+
 
 
     }
