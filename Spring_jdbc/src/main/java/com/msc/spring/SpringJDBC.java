@@ -11,6 +11,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RestController;
 
+/*
+
+Database SQL
+
+       use test;
+
+       create table employee(id int,firstname varchar(20),lastname varchar(20));
+
+       select * from employee;
+
+*/
 @SpringBootApplication
 @RestController
 public class SpringJDBC implements CommandLineRunner
@@ -33,6 +44,11 @@ public class SpringJDBC implements CommandLineRunner
 
     @Override
     public void run(String... args) throws Exception {
+        jdbcClass();
+    }
+
+
+    private void jdbcClass(){
         // employeeDAO.create(new Employee(null,"TuTU","VAVA"));  Insert
         Boolean up = employeeDAO.update(new Employee(1), new Employee("Kadu","09"));
         // Boolean del = employeeDAO.delete(new Employee(3));  //delete
