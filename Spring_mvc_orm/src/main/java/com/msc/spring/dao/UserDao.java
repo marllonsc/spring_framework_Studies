@@ -1,6 +1,7 @@
 package com.msc.spring.dao;
 
 import com.msc.spring.config.BeansConfig;
+import com.msc.spring.dao.rowmapper.UserRowMapper;
 import com.msc.spring.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -62,6 +63,17 @@ public class UserDao implements BaseDao<User>{
     public User read(User obj) {
         try{
             return (User) beans.getHibernateTemplate().get(User.class,obj.getId());
+        }catch (Exception e ){
+            System.out.println("Error - " + e.getMessage());
+            return null;
+        }
+    }
+
+    public User read(String email) {
+        try{
+            String query = "select * from user where email=?";
+            UserRowMapper map = new UserRowMapper();
+            return (User) beans.getConnection().queryForObject(query, map ,email);
         }catch (Exception e ){
             System.out.println("Error - " + e.getMessage());
             return null;

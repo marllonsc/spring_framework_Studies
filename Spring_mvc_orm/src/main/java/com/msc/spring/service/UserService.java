@@ -46,4 +46,14 @@ public class UserService implements BaseService<User>{
     public List<User> findAll() {
         return dao.getAll();
     }
+
+    public String validateEmail(User user,String action){
+        Integer id = user.getId();
+        user = dao.read(user.getEmail());
+        String msg = "";
+        if(user != null && ((action.equals("update") && id == user.getId()) || action.equals("add"))){
+            msg = "Email Already exist.";
+        }
+        return msg;
+    }
 }

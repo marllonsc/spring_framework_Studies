@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
 
@@ -19,8 +20,9 @@ public class UserController {
     private UserService service;
 
     @RequestMapping("/registrationPage")
-    public String showRegistrationPage(){
+    public String showRegistrationPage(ModelMap model){
         // ModelAndView modelAndView = new ModelAndView("userReg");
+        model.addAttribute("user",new User());
         return "userReg";
     }
 
@@ -30,21 +32,31 @@ public class UserController {
     }
 
     @RequestMapping("/update")
-    public String udpatePage(){
-
+    public String udpatePage(ModelMap model){
+        model.addAttribute("user",new User());
         return "UpdateUser";
     }
 
     @RequestMapping(value = "registerUser", method = RequestMethod.POST)
     public String registerUser(@ModelAttribute("user") User user, ModelMap model){
         System.out.println(user);
-        Boolean result = service.save(user);
+        Boolean result = false;
+        String msg =  service.validateEmail(user,"add");
+        if(!StringUtils.isEmpty(msg)){
+            model.addAttribute("message",msg);
+            model.addAttribute("user",user);
+            return "userReg";
+        } else {
+            result = service.save(user);
+        }
         if (result) {
-            model.addAttribute("message","Sucess Insert");
+            msg = "Sucess Insert";
+            model.addAttribute("message", msg);
             model.addAttribute("user",user);
             return "regResult";
         } else {
-            model.addAttribute("message","Error !");
+            msg = "Error !";
+            model.addAttribute("message", msg);
             model.addAttribute("user","It was not insert, something worng just happened!");
             return "regResult";
         }
@@ -53,6 +65,12 @@ public class UserController {
     @RequestMapping(value = "updateUser", method = RequestMethod.POST)
     public String updateUser(@ModelAttribute("user") User user, ModelMap model){
         System.out.println(user);
+        String msg =  service.validateEmail(user,"update");
+        if(!StringUtils.isEmpty(msg)){
+            model.addAttribute("message",msg);
+            model.addAttribute("user",user);
+            return "UpdateUser";
+        }
         Boolean result = service.update(user);
         if (result) {
             model.addAttribute("message","Sucess Update");
@@ -109,6 +127,7 @@ public class UserController {
             return "showUsers";
         }
     }
+
 
     public UserService getService() {
         return service;

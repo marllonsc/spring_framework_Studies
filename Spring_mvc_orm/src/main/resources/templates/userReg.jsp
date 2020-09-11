@@ -1,14 +1,12 @@
 <html>
+
 <body>
 
 <form action ="registerUser" method="post">
 
-    ID: <input type="text" name="id" />
-    Name: <input type="text" name="name" />
-    Email: <input type="text" name="email" />
+    Name: <input type="text" name="name" id="name" th:value="${user.name}"/></br></br>
+    Email: <input type="text" name="email" id="email" th:value="${user.email}"/> </br></br> <span th:text="${message}"></span></br></br></br></br>
     <input type="submit" name="Register" />
-
-
 
 </form>
 
