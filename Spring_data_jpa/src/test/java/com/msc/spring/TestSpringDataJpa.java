@@ -20,5 +20,9 @@ public class TestSpringDataJpa {
         repository.save(new Product(4l,"Food","Rice",10d));
 
         repository.findAll().forEach(p -> {System.out.println(p.getPrice());}); //lambda
+
+        repository.findByName("food").forEach(p -> {System.out.println(p.getPrice());});
+
+        repository.findByNameAndPrice("food",7.500).forEach(p -> {System.out.println(p.getName());});
     }
 }
