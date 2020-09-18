@@ -8,21 +8,21 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 
 
-@SpringBootTest
-public class TestSpringDataJpa {
+//@SpringBootTest
+//public class TestSpringDataJpa {
 
-    @Autowired
-    ApplicationContext context;
+    //@Autowired
+    //ApplicationContext context;
 
-    @Test
-    public void saveProduct() {
-        ProductRepository repository = context.getBean(ProductRepository.class);
-        repository.save(new Product(4l,"Food","Rice",10d));
+    //@Test
+    //public void saveProduct() {
+        //ProductRepository repository = context.getBean(ProductRepository.class);
+       // repository.save(new Product(4l,"Food","Rice",10d));
 
-        repository.findAll().forEach(p -> {System.out.println(p.getPrice());}); //lambda
+       // repository.findAll().forEach(p -> {System.out.println(p.getPrice());}); //lambda
 
-        repository.findByName("food").forEach(p -> {System.out.println(p.getPrice());});
+       // repository.findByName("food").forEach(p -> {System.out.println(p.getPrice());});
 
-        repository.findByNameAndPrice("food",7.500).forEach(p -> {System.out.println(p.getName());});
-    }
-}
+        //repository.findByNameAndPrice("food",7.500).forEach(p -> {System.out.println(p.getName());});
+    //}
+//}

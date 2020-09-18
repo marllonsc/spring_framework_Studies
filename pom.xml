@@ -25,6 +25,7 @@
       <module>Spring_Java_config</module>
       <module>Spring_Boot</module>
       <module>Spring_data_jpa</module>
+    <module>Spring_web_boot</module>
   </modules>
 
   <properties>
